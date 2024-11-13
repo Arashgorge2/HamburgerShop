@@ -1,0 +1,8 @@
+/* Positionierung des fixierten Logout-Buttons */
+.fixed-logout-button {
+    position: fixed;
+    top: 15px; /* Abstand vom oberen Rand */
+    left: 20px; /* Abstand vom linken Rand */
+    z-index: 1000; /* Sicherstellen, dass der Button immer sichtbar ist */
+  }
+  

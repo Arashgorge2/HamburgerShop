@@ -1,3 +1,9 @@
-<ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+<!-- Fixierter Logout-Button oben links -->
+<div class="fixed-logout-button">
+  <ion-button color="danger" (click)="logout()">
+    <ion-icon name="log-out-outline"></ion-icon>
+    Logout
+  </ion-button>
+</div>
+
+<ion-router-outlet></ion-router-outlet>

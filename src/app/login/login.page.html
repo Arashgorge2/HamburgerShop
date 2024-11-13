@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- فرم لاگین -->
+  <form (ngSubmit)="onLogin()">
+    <!-- فیلد نام کاربری -->
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="username"
+        name="username"
+        required
+        placeholder="Enter your username">
+      </ion-input>
+    </ion-item>
+
+    <!-- فیلد رمز عبور -->
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        required
+        placeholder="Enter your password">
+      </ion-input>
+    </ion-item>
+
+    <!-- دکمه لاگین -->
+    <ion-button expand="full" type="submit" color="primary">
+      Login
+    </ion-button>
+
+    <!-- پیام خطا -->
+    <div *ngIf="loginError" class="error-message">
+      {{ loginErrorMessage }}
+    </div>
+  </form>
+</ion-content>

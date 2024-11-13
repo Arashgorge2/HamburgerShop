@@ -1,17 +1,41 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+    <ion-title>Getränke Liste</ion-title>
+
+    <!-- Warenkorb-Button oben rechts mit Badge -->
+    <ion-buttons slot="end">
+      <ion-button (click)="goToCart()">
+        <ion-icon name="cart-outline"></ion-icon>
+        <ion-badge *ngIf="cartCount > 0" color="primary">{{ cartCount }}</ion-badge>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let product of getraenke">
+      <ion-thumbnail slot="start">
+        <img [src]="product.imgUrl" alt="{{ product.name }}">
+      </ion-thumbnail>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+      <ion-label>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>Preis: {{ product.price | currency }}</p>
+      </ion-label>
+
+      <!-- Schaltfläche zum Hinzufügen in den Warenkorb -->
+      <ion-button slot="end" color="success" (click)="addToCart(product)">
+        <ion-icon name="cart-outline"></ion-icon>
+        In den Warenkorb
+      </ion-button>
+
+      <!-- Schaltfläche zum Kaufen des Produkts -->
+      <ion-button slot="end" color="primary" (click)="buyProduct(product)">
+        <ion-icon name="cash-outline"></ion-icon>
+        Kaufen
+      </ion-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
