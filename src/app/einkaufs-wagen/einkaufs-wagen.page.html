@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Einkaufswagen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of cartItems">
+      <ion-label>
+        {{ item.name }} - {{ item.price }}€ x {{ item.quantity }}
+      </ion-label>
+      <ion-button (click)="updateQuantity(item.id, item.quantity - 1)">-</ion-button>
+      <ion-badge>{{ item.quantity }}</ion-badge>
+      <ion-button (click)="updateQuantity(item.id, item.quantity + 1)">+</ion-button>
+      <ion-button color="danger" (click)="removeFromCart(item.id)">Löschen</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <!-- Gheymat Kolli -->
+  <ion-item lines="none">
+    <ion-label><strong>Gesamtpreis:</strong></ion-label>
+    <ion-note color="primary">{{ totalPrice }}€</ion-note>
+  </ion-item>
+</ion-content>

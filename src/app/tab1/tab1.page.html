@@ -13,29 +13,28 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-list>
-    <ion-item *ngFor="let product of hamburgers">
-      <ion-thumbnail slot="start">
-        <img [src]="product.imgUrl" alt="{{ product.name }}">
-      </ion-thumbnail>
+  <ion-card>
 
-      <ion-label>
-        <h2>{{ product.name }}</h2>
-        <p>{{ product.description }}</p>
-        <p>Preis: {{ product.price | currency }}</p>
-      </ion-label>
-
-      <!-- Schaltfläche zum Hinzufügen in den Warenkorb -->
-      <ion-button slot="end" color="success" (click)="addToCart(product)">
-        <ion-icon name="cart-outline"></ion-icon>
-        In den Warenkorb
-      </ion-button>
-
-      <!-- Schaltfläche zum Kaufen des Produkts -->
-      <ion-button slot="end" color="primary" (click)="buyProduct(product)">
-        <ion-icon name="cash-outline"></ion-icon>
-        Kaufen
-      </ion-button>
-    </ion-item>
-  </ion-list>
-</ion-content>
+    <ion-list>
+      <ion-item *ngFor="let product of hamburgers">
+        <ion-thumbnail slot="start">
+          <img [src]="product.imgUrl" alt="{{ product.name }}">
+        </ion-thumbnail>
+        
+        <ion-label>
+          <h2>{{ product.name }}</h2>
+          <p>{{ product.description }}</p>
+          <ion-button class="ion-button" color="success" (click)="addToCart(product)">
+            <ion-icon name="cart-outline"></ion-icon>
+            {{product.price}}
+          </ion-button>
+        </ion-label>
+        
+        <!-- Schaltfläche zum Hinzufügen in den Warenkorb -->
+       
+        
+        
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  </ion-content>

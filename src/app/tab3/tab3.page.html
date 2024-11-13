@@ -22,20 +22,13 @@
       <ion-label>
         <h2>{{ product.name }}</h2>
         <p>{{ product.description }}</p>
-        <p>Preis: {{ product.price | currency }}</p>
+        <ion-button class="ion-button" color="success" (click)="addToCart(product)">
+          <ion-icon name="cart-outline"></ion-icon>
+          {{product.price}}
+        </ion-button>
       </ion-label>
 
-      <!-- Schaltfläche zum Hinzufügen in den Warenkorb -->
-      <ion-button slot="end" color="success" (click)="addToCart(product)">
-        <ion-icon name="cart-outline"></ion-icon>
-        In den Warenkorb
-      </ion-button>
-
-      <!-- Schaltfläche zum Kaufen des Produkts -->
-      <ion-button slot="end" color="primary" (click)="buyProduct(product)">
-        <ion-icon name="cash-outline"></ion-icon>
-        Kaufen
-      </ion-button>
+   
     </ion-item>
   </ion-list>
 </ion-content>

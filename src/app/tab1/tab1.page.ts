@@ -36,6 +36,20 @@ export class Tab1Page implements OnInit {
       }
     );
   }
+  async addToCart(product: any) {
+    this.cart.push(product);
+    this.saveCart();
+    this.updateCartCount();
+  
+    console.log('Cart Items:', this.cart);
+  
+    const toast = await this.toastCtrl.create({
+      message: `${product.name} wurde zum Warenkorb hinzugefügt.`,
+      duration: 2000,
+      color: 'success',
+    });
+    await toast.present();
+  }
 
   // Warenkorb aus LocalStorage laden
   loadCart() {
@@ -45,19 +59,7 @@ export class Tab1Page implements OnInit {
   }
 
   // Methode zum Hinzufügen in den Warenkorb
-  async addToCart(product: any) {
-    this.cart.push(product);
-    this.saveCart();
-    this.updateCartCount();
-
-    const toast = await this.toastCtrl.create({
-      message: `${product.name} wurde zum Warenkorb hinzugefügt.`,
-      duration: 2000,
-      color: 'success',
-    });
-    await toast.present();
-  }
-
+ 
   // Methode zum Kaufen eines Produkts
   async buyProduct(product: any) {
     this.cart.push(product);
@@ -87,6 +89,6 @@ export class Tab1Page implements OnInit {
 
   // Methode zur Navigation zur Warenkorb-Seite
   goToCart() {
-    this.router.navigate(['/cart']);
+    this.router.navigate(['/einkaufs-wagen']);
   }
 }

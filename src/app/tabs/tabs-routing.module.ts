@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'einkaufs-wagen',
+        loadChildren: () => import('../einkaufs-wagen/einkaufs-wagen.module').then( m => m.EinkaufsWagenPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

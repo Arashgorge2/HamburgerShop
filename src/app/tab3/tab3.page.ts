@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { getraenke } from '../services/Getreanke.service';
+import { getraenke } from '../services/services/Getreanke.service';
 
 @Component({
   selector: 'app-tab3',
